@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mindpath>
+	<mindpathentry kind="SOURCE" path="/exampleLib-1.1/src/main/mind"/>
+	<mindpathentry kind="SOURCE" path="/exampleLib-1.1/src/test/mind"/>
+</mindpath>

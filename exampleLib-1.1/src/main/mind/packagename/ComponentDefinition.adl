@@ -1,0 +1,5 @@
+primitive packagename.ComponentDefinition
+{
+	provides ComponentInterface as s;
+	source componentImpl.c;
+ } 

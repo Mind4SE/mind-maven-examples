@@ -1,0 +1,7 @@
+
+interface packagename.TestInterface {
+
+	@Test("Check if returnZero returns 0")
+	void testReturnZero(void);
+
+}

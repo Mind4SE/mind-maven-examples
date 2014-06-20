@@ -1,0 +1,9 @@
+@TestSuite("TestSuite for packagename.ComponentDefinition")
+composite packagename.ComponentDefinitionTestSuite {
+	
+	contains ComponentDefinitionTester as componentDefinitionTesterComp;
+	contains ComponentDefinition as componentDefinitionComp;
+	
+	binds componentDefinitionTesterComp.c to componentDefinitionComp.s;
+	
+}

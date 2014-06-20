@@ -1,0 +1,6 @@
+primitive packagename.ComponentDefinitionTester {
+ 	
+ 	provides TestInterface as test;
+ 	requires ComponentInterface as c; 	
+	source ComponentDefinitionTester.c;
+}

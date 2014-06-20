@@ -104,6 +104,8 @@
 				<extensions>true</extensions>
 			</plugin>
 		</plugins>
+		
+		<!-- To make Eclipse accept our mind-library packaging -->
 		<pluginManagement>
 			<plugins>
 				<plugin>

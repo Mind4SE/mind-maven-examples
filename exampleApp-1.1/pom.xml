@@ -71,6 +71,28 @@
 				</configuration>
 			</plugin>
 			<!-- ==================================================== -->
+			
+			<!-- ==================================================== -->
+			<!-- to invoke MindUnit Launcher -->
+			<plugin>
+				<groupId>org.ow2.mind</groupId>
+				<artifactId>mindunit-maven-plugin</artifactId>
+				<version>${mind.version}</version>
+				<configuration>
+					<testFolder>src/test/mind</testFolder>
+					<arguments>
+						<parameter>
+							<name>c-flags</name>
+							<value>-g</value>
+						</parameter>
+						<parameter>
+							<name>ld-flags</name>
+							<value>-lcunit</value>
+						</parameter>
+					</arguments>
+				</configuration>
+			</plugin>
+			<!-- ==================================================== -->
 		</plugins>
 
 		<!-- Make Eclipse happy about our modules lifecycle mapping, so it ignores them in its UI but not during the build -->

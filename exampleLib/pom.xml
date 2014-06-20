@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<!-- Template pom.xml for Mind components library artifact. Edit it to better 
+	fit your needs. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- you can freely edit groupId/artifactId/version -->
+	<groupId>org.ow2.mind.maven</groupId>
+	<artifactId>exampleLib</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<!-- packaging must be "mind-library", and eclipse users are recommended 
+		to take a look at the pluginManagement section further in the file -->
+	<packaging>mind-library</packaging>
+
+	<!-- ================================================ -->
+	<!-- REPOSITORIES -->
+	<repositories>
+		<repository>
+			<id>objectweb-release</id>
+			<name>ObjectWeb Maven Repository</name>
+			<url>http://maven.objectweb.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>objectweb-snapshot</id>
+			<name>ObjectWeb Maven Repository</name>
+			<url>http://maven.objectweb.org/maven2-snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<!-- ================================================= -->
+	<!-- PLUGIN REPOSITORIES -->
+	<pluginRepositories>
+		<pluginRepository>
+			<id>objectweb-release</id>
+			<name>ObjectWeb Maven Repository</name>
+			<url>http://maven.objectweb.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>objectweb-snapshot</id>
+			<name>ObjectWeb Maven Repository</name>
+			<url>http://maven.objectweb.org/maven2-snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<!-- ============================================================ -->
+	<!-- PROPERTIES -->
+	<properties>
+		<mind.version>2.1-SNAPSHOT</mind.version>
+	</properties>
+	<!-- ============================================================ -->
+
+
+	<!-- ============================================================ -->
+	<!-- Currently, these dependencies are not strictly useful, but it is provided 
+		to ease configuration of user modules (i.e. modules that depends on this 
+		one will automatically depends on the others. -->
+	<!-- ============================================================ -->
+	<dependencies>
+		<!-- dependency> <groupId>org.objectweb.fractal.mind</groupId> <artifactId>fractal-mind-api</artifactId> 
+			<version>${mind.version}</version> <type>car</type> </dependency -->
+		<!-- dependency> <groupId>org.ow2.mind</groupId> <artifactId>mind</artifactId> 
+			<version>${mind.version}</version> <type>car</type> </dependency -->
+		<!-- dependency> <groupId>org.objectweb.fractal.mind</groupId> <artifactId>mind-baselib</artifactId> 
+			<version>${mind.version}</version> <type>car</type> </dependency -->
+	</dependencies>
+
+	
+	<build>
+		<plugins>
+			<!-- Mind build -->
+			<plugin>
+				<groupId>org.ow2.mind</groupId>
+				<artifactId>mind-lifecycle-maven-plugin</artifactId>
+				<version>${mind.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.ow2.mind</groupId>
+										<artifactId>mar-maven-plugin</artifactId>
+										<versionRange>2.1-SNAPSHOT</versionRange>
+										<goals>
+											<goal>default-resources</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>

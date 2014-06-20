@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!-- Template pom.xml for Mind applications. Edit it to better fit your needs. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.ow2.mind.maven</groupId>
+	<artifactId>exampleApp</artifactId>
+	
+	<!-- Eclipse users should take a look at the pluginManagement section further in the file -->
+	<packaging>mind-application</packaging>
+	
+	<version>1.0-SNAPSHOT</version>
+
+	<!-- ============================================================ -->
+	<!-- PROPERTIES -->
+	<properties>
+		<mind.version>2.1-SNAPSHOT</mind.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<!-- ============================================================ -->
+
+	<!-- ============================================================ -->
+	<!-- DEPENDENCIES -->
+	<dependencies>
+		<dependency>
+			<groupId>org.ow2.mind.maven</groupId>
+			<artifactId>exampleLib</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>mar</type>
+		</dependency>
+	</dependencies>
+	<!-- ============================================================ -->
+
+	<build>
+
+		<!-- ========================================================== -->
+		<!-- PLUGINS -->
+		<plugins>
+
+			<plugin>
+				<groupId>org.ow2.mind</groupId>
+				<artifactId>mind-lifecycle-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<version>${mind.version}</version>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.ow2.mind</groupId>
+				<artifactId>mar-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<version>${mind.version}</version>
+			</plugin>
+
+			<!-- ==================================================== -->
+			<!-- to invoke Mind ADL Launcher -->
+			<plugin>
+				<groupId>org.ow2.mind</groupId>
+				<artifactId>mindadl-maven-plugin</artifactId>
+				<version>${mind.version}</version>
+				<configuration>
+					<adl>customruntime.boot.GenericApplication&lt;Main&gt;</adl>
+					<arguments>
+						<parameter>
+							<name>c-flags</name>
+							<value>-g</value>
+						</parameter>
+					</arguments>
+				</configuration>
+			</plugin>
+			<!-- ==================================================== -->
+		</plugins>
+
+		<!-- Make Eclipse happy about our modules lifecycle mapping, so it ignores them in its UI but not during the build -->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.ow2.mind</groupId>
+										<artifactId>mind-lifecycle-maven-plugin</artifactId>
+										<versionRange>2.1-SNAPSHOT</versionRange>
+										<goals>
+											<goal>unpack-dependencies</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.ow2.mind</groupId>
+										<artifactId>mar-maven-plugin</artifactId>
+										<versionRange>2.1-SNAPSHOT</versionRange>
+										<goals>
+											<goal>default-resources</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.ow2.mind</groupId>
+										<artifactId>mindadl-maven-plugin</artifactId>
+										<versionRange>2.1-SNAPSHOT</versionRange>
+										<goals>
+											<goal>mindadl</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>	
+		</pluginManagement>
+	</build>
+
+</project>

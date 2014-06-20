@@ -3,6 +3,10 @@
 // -----------------------------------------------------------------------------
 #include <stdio.h>
 
+int main(int argc, char *argv[]) {
+	return CALL(entryPoint, main)(argc, argv);
+}
+
 //int main(int argc, char** argv)
 int METH(entryPoint, main) (int argc, char *argv[])
 {

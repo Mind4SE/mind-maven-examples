@@ -3,4 +3,5 @@
 	<mindpathentry kind="SOURCE" path="/exampleApp/src/main/mind"/>
 	<mindpathentry kind="SOURCE" path="/exampleApp/src/test/mind"/>
 	<mindpathentry kind="PROJECT" path="/exampleLib"/>
+	<mindpathentry kind="APPLI" path="Main:Main"/>
 </mindpath>

@@ -136,15 +136,26 @@ testDocOutputDir=$(confOutputDirVar)/test-doc
 
 # The real build command.
 
-all: compile graph doc test  
+dependenciesDir=$(confOutputDirVar)/make-dependencies
+dependencyPathArg=--src-path="$(subst :,$(PATH_SEPARATOR),$(subst ::,:,$(dependenciesDir)))"
 
-clean_all: clean clean_graph clean_doc clean_test
+dependencies:
+	mkdir -p $(dependenciesDir) ;\
+	cp -r ../exampleLib/src/main/mind/* $(dependenciesDir)
+	
+clean_dependencies:
+	rm -Rf $(dependenciesDir); \
+	mkdir -p $(dependenciesDir)
 
-compile: build
+all: dependencies compile graph doc test  
+
+clean_all: clean_dependencies clean clean_graph clean_doc clean_test
+
+compile: build dependencies
 ifdef targetComponent
 	if test ! -x $(MINDC); \
         then echo ' Not found mindc ! Set MIND_ROOT variable or go to 'Mindc location' eclipse preference page'; \
-    	else $(MINDC) $(sourcePathArg) $(includePathArg) $(compilerCommandArg) $(linkerCommandArg) $(assemblerCommandArg) $(asFlagsArg) $(cppFlagsArg) $(cFlagsArg) $(ldFlagsArg) $(extraOptionsArg) -o=$(binOutputDir) $(targetComponent):$(binaryName) ;\
+    	else $(MINDC) $(sourcePathArg) $(dependencyPathArg) $(includePathArg) $(compilerCommandArg) $(linkerCommandArg) $(assemblerCommandArg) $(asFlagsArg) $(cppFlagsArg) $(cFlagsArg) $(ldFlagsArg) $(extraOptionsArg) -o=$(binOutputDir) $(targetComponent):$(binaryName) ;\
     fi
 else
 	echo "No application defined - MindEd users: Please configure your project target with the 'Mind Path' -> (right click) 'New application' menu."
@@ -181,7 +192,7 @@ build_test:
 build_graph:
 	mkdir -p $(graphOutputDir)
 
-clean:
+clean: clean_dependencies
 	rm -Rf $(binOutputDir); \
 	mkdir -p $(binOutputDir)
 	

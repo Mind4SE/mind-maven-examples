@@ -1,3 +1,4 @@
+@Singleton
 primitive Main 
 {
 	provides customruntime.boot.Main as entryPoint;

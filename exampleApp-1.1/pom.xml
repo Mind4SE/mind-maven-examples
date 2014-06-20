@@ -11,7 +11,7 @@
 	<!-- Eclipse users should take a look at the pluginManagement section further in the file -->
 	<packaging>mind-application</packaging>
 	
-	<version>1.1-SNAPSHOT</version>
+	<version>1.1</version>
 
 	<!-- ============================================================ -->
 	<!-- PROPERTIES -->

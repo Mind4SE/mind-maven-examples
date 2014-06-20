@@ -1,0 +1,7 @@
+primitive pkg.Relay {
+	
+	provides customruntime.boot.Main as mainItf;
+	requires packagename.ComponentInterface as zeroItf;
+	
+	source Relay.c;
+}

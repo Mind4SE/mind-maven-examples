@@ -1,0 +1,8 @@
+composite pkg.SampleApplication {
+	contains customruntime.boot.BootstrapNoLCC as bootstrap;
+	contains Relay as relayComp;
+	contains packagename.ComponentDefinition as zeroServer;
+	
+	binds bootstrap.entryPoint to relayComp.mainItf;
+	binds relayComp.zeroItf to zeroServer.s;
+}

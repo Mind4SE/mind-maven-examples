@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mindpath>
+	<mindpathentry kind="SOURCE" path="/exampleApp-1.1/src/main/mind"/>
+	<mindpathentry kind="SOURCE" path="/exampleApp-1.1/src/test/mind"/>
+	<mindpathentry kind="PROJECT" path="/exampleLib"/>
+	<mindpathentry kind="APPLI" path="pkg.SampleApplication:SampleApplication"/>
+</mindpath>

@@ -2,6 +2,6 @@
 <mindpath>
 	<mindpathentry kind="SOURCE" path="/exampleApp-1.1/src/main/mind"/>
 	<mindpathentry kind="SOURCE" path="/exampleApp-1.1/src/test/mind"/>
-	<mindpathentry kind="PROJECT" path="/exampleLib"/>
 	<mindpathentry kind="APPLI" path="pkg.SampleApplication:SampleApplication"/>
+	<mindpathentry kind="PROJECT" path="/exampleLib-1.1"/>
 </mindpath>

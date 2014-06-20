@@ -141,7 +141,7 @@ dependencyPathArg=--src-path="$(subst :,$(PATH_SEPARATOR),$(subst ::,:,$(depende
 
 dependencies:
 	mkdir -p $(dependenciesDir) ;\
-	cp -r ../exampleLib/src/main/mind/* $(dependenciesDir)
+	cp -r ../exampleLib-1.1/src/main/mind/* $(dependenciesDir)
 	
 clean_dependencies:
 	rm -Rf $(dependenciesDir); \

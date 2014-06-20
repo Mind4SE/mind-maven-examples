@@ -3,7 +3,7 @@
 	<name>exampleApp-1.1</name>
 	<comment></comment>
 	<projects>
-		<project>exampleLib</project>
+		<project>exampleLib-1.1</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
